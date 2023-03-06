@@ -1,4 +1,4 @@
-module FileLink
+module FileUtility
 
   def file_link.write(name, desg, dept)
     file_name = "employeedetails.csv"

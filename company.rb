@@ -9,7 +9,7 @@ require 'product'
 require 'subproduct'
 require 'revenue'
 class Company
-include Csv
+  include Csv
   def initialize
     emp1 = Employee.new("Gaurav", "1234567890", "gaurav@webonise", "male", "24", "1998", "engg")
     emp2 = Employee.new("Mayur", "987654321", "mayur@webonise", "male", "26", "1996", "engg")
@@ -33,6 +33,7 @@ include Csv
 
 
     rev = Revenue.new()
+
     subpro1 = SubProduct.new("mango", "mag100", 1000)
     subpro2 = SubProduct.new("mango", "mag100", 2000)
     subpro3 = SubProduct.new("mango", "mag100", 3000)
@@ -49,4 +50,3 @@ include Csv
 end
 
 com = Company.new()
-
