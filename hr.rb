@@ -6,7 +6,7 @@ class Hr < Department
   end
 
   def print_hr_emp(emp_arr)
-    for i in emp_arr
+    emp_arr.each do |i|
       if i.emp_dept == 'HR'
         puts i.print_employee
       end
@@ -14,8 +14,8 @@ class Hr < Department
   end
 
   def hr_count(emp_arr)
-    for i in emp_arr
-      if i.emp_dept == "HR"
+    emp_arr.each do |i|
+      if i.emp_dept == 'HR'
         @@hr_emp_count += 1
       end
     end
