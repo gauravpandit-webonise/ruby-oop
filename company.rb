@@ -1,48 +1,50 @@
 class Company
+  attr_accessor :comp_name, :division
   @@count = 0
   def initialize(comp_name, division)
     @comp_name = comp_name
-    #@no_emp = no_emp
     @division = division
     @@count += 1
   end
-  attr_accessor :comp_name, :division
+
   def print_company_details
     puts comp_name
-    #puts no_emp
     puts division
     puts @@count
   end
 
   def read_file
-    fileobject = File.new("hello world", "r")
-    puts fileobject.read
+    file_object = File.new("hello world", "r")
+    puts file_object.read
+    File.close
   end
 end
 
 class Product < Company
+  attr_accessor :prod_name, :prod_id
   def initialize(prod_name, prod_id)
     @prod_name = prod_name
     @prod_id = prod_id
   end
-  attr_accessor :prod_name, :prod_id
+  
   def print_product_details
-
   end
 end
 
-class Services < Company
+class Service < Company
+  attr_accessor :service_name, :service_id
   def initialize(service_name, service_id)
     @service_name = service_name
     @service_id = service_id
   end
-  attr_accessor :service_name, :service_id
+  
   def print_service_details
 
   end
 end
 
 class Employee < Company
+  attr_accessor :emp_name, :emp_id, :emp_gender, :emp_mail, :emp_contact, :emp_desg, :emp_dept
   def initialize(emp_name, emp_id, emp_gender, emp_mail, emp_contact, emp_desg, emp_dept)
     @emp_name = emp_name
     @emp_id = emp_id
@@ -61,10 +63,8 @@ class Employee < Company
     fileobject.syswrite("employee designation : " + emp_desg + "\n")
     fileobject.syswrite("employee department : " + emp_dept + "\n")
     fileobject.syswrite("\n\n")
-
   end
-  attr_accessor :emp_name, :emp_id, :emp_gender, :emp_mail, :emp_contact, :emp_desg, :emp_dept
-
+  
   def print_employee_details
     puts emp_name
     puts emp_id
@@ -91,13 +91,11 @@ class Department < Company
   end
 end
 
-###########################################
-
 class Hr < Department
   def initialize(hr_desg, hr_hod)
     @hr_desg = hr_desg
     @hr_hod = hr_hod
-    #super(dept_name, dept_id, num_emp)
+
   end
 end
 
@@ -105,7 +103,7 @@ class Engineer < Department
   def initialize(engg_desg, engg_hod)
     @engg_desg = engg_desg
     @engg_hod = engg_hod
-    #super(dept_name, dept_id, num_emp)
+
   end
 end
 
@@ -113,7 +111,7 @@ class Qa < Department
   def initialize(qa_desg, qa_hod)
     @qa_desg = qa_desg
     @qa_hod = qa_hod
-    #super(dept_name, dept_id, num_emp)
+
   end
 end
 
@@ -121,19 +119,11 @@ class Sales < Department
   def initialize(sales_desg, sales_hod)
     @sales_desg = sales_desg
     @sales_hod = sales_hod
-    #super(dept_name, dept_id, num_emp)
+
   end
 end
 
-
-# com = Company.new("web", 5)
-# com1 = Company.new("web", 5)
-# dpt1 = Department.new("cse", 100)
-
 emp = Employee.new("gaurav", "web100", "Male", "gaurav@webonise", "1234567890", "intern", "ROR")
 emp1 = Employee.new("mayur", "web500", "Male", "mayur@webonise", "1234567890", "intern", "ROR")
-
-#puts com.print_company_details
-
 com = Company.new("webonise", 100)
 com.read_file
